@@ -12,4 +12,4 @@ Carac = setupcaracteristiques()
 YourPerso = Personnage(RaceSelect,Carac)
 
 print(YourPerso)
-
+test
