@@ -1,15 +1,22 @@
-from Methods import choixrace
+from Methods import *
 
-from Methods import Personnage,setupcaracteristiques
 
 print("first of all select your race: ")
+print("give a name at your caracter : ")
+
+NameSelect = ChoixName()
 
 RaceSelect = choixrace()
 
-Carac = setupcaracteristiques()
+if RaceSelect == "Orc":
+
+    Yourperso = Orc(NameSelect)
+else :
+    Yourperso = Humain(NameSelect)
 
 
-YourPerso = Personnage(RaceSelect,Carac)
+print(Yourperso.nom)
+print(Yourperso.race)
+print(Yourperso._caracteristiques)
 
-print(YourPerso)
-test
+

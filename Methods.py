@@ -1,15 +1,12 @@
 'define all the method for the project'
 
-
+from random import *
 
 class Personnage:
 
-    def __init__(self,race,caracteristiques):
-
-
-        self._race= race
-        self._caracteristiques = caracteristiques
-
+    def __init__(self,nom,race):
+        self.nom = nom
+        self._race = race
 
     def __setteurrace(self,newrace):
 
@@ -19,6 +16,26 @@ class Personnage:
 
         return self._race
 
+
+
+
+
+
+    race = property(__getteurrace,__setteurrace)
+
+
+class Orc(Personnage):
+
+    def __init__(self,nom):
+
+        self.nom = nom
+        self._caracteristiques = {
+                "Santé": 20,
+                "Armor": 10,
+                "Attaque": 7
+            }
+
+
     def __setteurcaract(self,**NewCaracteristiques):
 
         self._caracteristiques = NewCaracteristiques
@@ -27,16 +44,31 @@ class Personnage:
 
         return self._caracteristiques
 
-
-    def __str__(self):
-
-        return "Voici les caractéristiques de votre personnage  race : {} Caracteristiques: {}".format(self.race,self.caracteristiques)
+    caracteristiques = property(__getteurcaract,__setteurcaract)
 
 
 
+class Humain(Personnage):
+
+    def __init__(self,nom):
+        self.nom =nom
+        self._caracteristiques = {
+                "Santé": 20,
+                "Armor": 10,
+                "Attaque": 9
+            }
 
 
-    race = property(__getteurrace,__setteurrace)
+    def __setteurcaract(self,**NewCaracteristiques):
+
+        self._caracteristiques = NewCaracteristiques
+
+    def __getteurcaract(self,caracteristiques):
+
+        return self._caracteristiques
+
+    caracteristiques = property(__getteurcaract,__setteurcaract)
+
 
 
 
@@ -52,30 +84,19 @@ def choixrace():
     Personnage.race = newrace
 
 
+def LancerDès():
 
-def setupcaracteristiques():
+    ResultDès = randint(1,6)
+    print("Vous avez lancé le dès -> résultat : {}".format(ResultDès))
 
-    if Personnage.race == "Orc":
-        NewCaracteristiques = {
+    return ResultDès
 
-            "Armor":5,
-            "Defense":10
-        }
+def ChoixName():
 
-    elif Personnage.race =="Humain":
-
-        NewCaracteristiques = {
+    nom = input("Tapez le nom de votre perso: ")
+    return nom
 
 
-            "Armor":7,
-            "Defense":8
-        }
-
-    Personnage.caracteristiques = NewCaracteristiques
-
-
-
-Mousquetaire
 
 
 
