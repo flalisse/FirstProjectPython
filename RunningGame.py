@@ -15,8 +15,13 @@ else :
     Yourperso = Humain(NameSelect)
 
 
+
 print(Yourperso.nom)
 print(Yourperso.race)
 print(Yourperso._caracteristiques)
+
+
+LancerDes()
+
 
 
